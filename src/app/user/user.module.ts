@@ -4,7 +4,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AuthModalComponent } from './auth-modal/auth-modal.component';
 
-
 @NgModule({
   declarations: [
     AuthModalComponent
