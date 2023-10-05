@@ -19,9 +19,10 @@ export class TabsContainerComponent implements AfterContentInit {
     }
   }
 
-  selectTab(tab: TabComponent): void {
+  selectTab(tab: TabComponent) {
     this.tabs.forEach((tab) => tab.active = false);
     tab.active = true;
+    return false; // prevents default anchor tag behavior
   }
 
   getActiveTabClass(tab: TabComponent): object {
