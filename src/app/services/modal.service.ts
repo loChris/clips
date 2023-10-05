@@ -19,6 +19,11 @@ export class ModalService {
     });
   }
 
+  unregisterModal(name: string): void {
+    this.modals = this.modals.filter(element =>
+      element.name !== name);
+  }
+
   isModalVisible(name: string): boolean {
     return Boolean(this.modals.find(element =>
       element.name === name)?.visible);
