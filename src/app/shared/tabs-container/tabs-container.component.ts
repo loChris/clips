@@ -1,4 +1,4 @@
-import { Component, ContentChildren, AfterContentInit } from '@angular/core';
+import { Component, ContentChildren, AfterContentInit, QueryList } from '@angular/core';
 
 import { TabComponent } from '../tab/tab.component';
 
@@ -9,9 +9,25 @@ import { TabComponent } from '../tab/tab.component';
 })
 
 export class TabsContainerComponent implements AfterContentInit {
-  @ContentChildren(TabComponent) tabs: {} = {};
+  @ContentChildren(TabComponent) tabs: QueryList<TabComponent> = new QueryList();
 
   ngAfterContentInit(): void {
-    console.log(this.tabs);
+    const activeTabs: TabComponent[] = this.tabs.filter((tab) => tab.active);
+
+    if (!activeTabs || activeTabs.length === 0) {
+      this.selectTab(this.tabs.first);
+    }
+  }
+
+  selectTab(tab: TabComponent): void {
+    this.tabs.forEach((tab) => tab.active = false);
+    tab.active = true;
+  }
+
+  getActiveTabClass(tab: TabComponent): object {
+    return {
+      'hover:text-indigo-400': !tab.active,
+      'hover:text-white bg-indigo-400': tab.active,
+    }
   }
 }
