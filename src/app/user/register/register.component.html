@@ -8,6 +8,24 @@
       placeholder="Enter Name"
       formControlName="name"
     />
+    <p
+      *ngIf="registerForm.controls.name.errors?.['required']"
+      class="text-red-400"
+    >
+      Field is Required
+    </p>
+    <div>
+      <p *ngIf="registerForm.controls.name.errors?.['minlength']">
+        Minimum Name Length:
+        {{ registerForm.get('name')?.getError('minlength').requiredLength }}
+      </p>
+    </div>
+    <p
+      *ngIf="registerForm.controls.name.errors?.['maxlength']"
+      class="text-red-400"
+    >
+      Maximum 30 characters
+    </p>
   </div>
   <!-- Email -->
   <div class="mb-3">
