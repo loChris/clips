@@ -2,34 +2,7 @@
   <!-- Name -->
   <div class="mb-3">
     <label class="inline-block mb-2">Name</label>
-    <input
-      type="text"
-      class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-      placeholder="Enter Name"
-      formControlName="name"
-    />
-    <p
-      *ngIf="registerForm.controls.name.touched && registerForm.controls.name.dirty && registerForm.controls.name.errors?.['required']"
-      class="text-red-400"
-    >
-      Field is Required
-    </p>
-    <div>
-      <p
-        *ngIf="registerForm.controls.name.touched && registerForm.controls.name.dirty && registerForm.controls.name.errors?.['minlength']"
-      >
-        Minimum Name Length:
-        {{ registerForm.get('name')?.getError('minlength').requiredLength }}
-      </p>
-    </div>
-    <p
-      *ngIf="registerForm.controls.name.touched && registerForm.controls.name.dirty && registerForm.controls.name.errors?.['maxlength']"
-      class="text-red-400"
-    >
-      Maximum
-      {{ registerForm.get('name')?.getError('maxlength').requiredLength }}
-      characters
-    </p>
+    <app-input [control]="name"></app-input>
   </div>
   <!-- Email -->
   <div class="mb-3">
