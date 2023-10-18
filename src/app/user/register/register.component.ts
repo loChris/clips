@@ -20,13 +20,14 @@ export class RegisterComponent {
   ]);
   password = new FormControl('', [
     Validators.required,
-    Validators.minLength(3),
-    Validators.maxLength(50),
+    Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm),
+    Validators.minLength(8),
+    Validators.maxLength(62),
   ]);
   passwordConfirmation = new FormControl('', [
     Validators.required,
-    Validators.minLength(3),
-    Validators.maxLength(50),
+    Validators.minLength(8),
+    Validators.maxLength(62),
   ]);
   phoneNumber = new FormControl('', [
     Validators.required,
