@@ -1,7 +1,7 @@
 <input
-  type="text"
+  [type]="type"
   class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
-  placeholder="Enter Name"
+  [placeholder]="placeholder"
   [formControl]="control"
 />
 <ng-container *ngIf="control.touched && control.dirty">
@@ -17,5 +17,14 @@
   <p class="text-red-400" *ngIf="control.errors?.['maxlength']">
     Maximum Name Length:
     {{ control.getError('maxlength').requiredLength }}
+  </p>
+  <p class="text-red-400" *ngIf="control.errors?.['email']">Invalid Email</p>
+  <p class="text-red-400" *ngIf="control.errors?.['min']">
+    Minimum Age:
+    {{ control.getError('min').min }}
+  </p>
+  <p class="text-red-400" *ngIf="control.errors?.['max']">
+    Max Age:
+    {{ control.getError('max').max }}
   </p>
 </ng-container>

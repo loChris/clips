@@ -12,12 +12,7 @@ export class RegisterComponent {
     Validators.minLength(2),
     Validators.maxLength(50),
   ]);
-  email = new FormControl('', [
-    Validators.required,
-    Validators.email,
-    Validators.minLength(3),
-    Validators.maxLength(50),
-  ]);
+  email = new FormControl('', [Validators.required, Validators.email]);
   age = new FormControl('', [
     Validators.required,
     Validators.min(18),
