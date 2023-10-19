@@ -4,6 +4,7 @@
   [placeholder]="placeholder"
   [formControl]="control"
   [mask]="format"
+  [dropSpecialCharacters]="false"
 />
 <ng-container *ngIf="control.touched && control.dirty">
   <p *ngIf="control.errors?.['required']" class="text-red-400">
@@ -11,12 +12,12 @@
   </p>
   <div>
     <p class="text-red-400" *ngIf="control.errors?.['minlength']">
-      Minimum Name Length:
+      Minimum Length:
       {{ control.getError('minlength').requiredLength }}
     </p>
   </div>
   <p class="text-red-400" *ngIf="control.errors?.['maxlength']">
-    Maximum Name Length:
+    Maximum Length:
     {{ control.getError('maxlength').requiredLength }}
   </p>
   <p class="text-red-400" *ngIf="control.errors?.['email']">Invalid Email</p>
@@ -29,7 +30,8 @@
     {{ control.getError('max').max }}
   </p>
   <p class="text-red-400" *ngIf="control.errors?.['pattern']">
-    Password must be at least 8 characters long, have 1 uppercase letter, 1
-    lowercase letter, and 1 number.
+    Password must be at least
+    {{ control.getError('minlength').requiredLength }} characters long, have 1
+    uppercase letter, 1 lowercase letter, and 1 number.
   </p>
 </ng-container>
