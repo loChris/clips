@@ -43,4 +43,14 @@ export class RegisterComponent {
     passwordConfirmation: this.passwordConfirmation,
     phoneNumber: this.phoneNumber,
   });
+
+  showAlert = false;
+  alertMessage = 'Please wait. Your account is being created.';
+  alertColor = 'blue';
+
+  registerUser() {
+    this.showAlert = true;
+    this.alertMessage = 'Please wait. Your account is being created.';
+    this.alertColor = 'blue';
+  }
 }

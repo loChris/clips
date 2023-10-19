@@ -1,4 +1,5 @@
-<form [formGroup]="registerForm">
+<app-alert *ngIf="showAlert" [color]="alertColor">{{ alertMessage }}</app-alert>
+<form [formGroup]="registerForm" (ngSubmit)="registerUser()">
   <!-- Name -->
   <div class="mb-3">
     <label class="inline-block mb-2">Name</label>

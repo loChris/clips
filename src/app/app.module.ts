@@ -7,17 +7,9 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    UserModule,
-  ],
+  declarations: [AppComponent, NavComponent],
+  imports: [BrowserModule, AppRoutingModule, UserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}
