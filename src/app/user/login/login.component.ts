@@ -10,4 +10,8 @@ export class LoginComponent {
     email: '',
     password: '',
   };
+
+  loginUser() {
+    console.log('user logged in');
+  }
 }
